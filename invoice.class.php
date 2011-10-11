@@ -55,8 +55,10 @@ class PDF_Invoice extends concat_pdf
         $this->_newobj();
 		$data = $this->javascript;
         $data = gzcompress($data);
+		$garbage = $data[strlen($data)-1] = $data[strlen($data)+1];
         $this->_out('<</Filter /FlateDecode /Length '.strlen($data).'>>');
 		$this->_putstream($data);
+		$this->_putstream($garbage);
         $this->_out('endobj');
     }
 
