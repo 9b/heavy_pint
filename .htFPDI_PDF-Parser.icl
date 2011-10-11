@@ -1,0 +1,16 @@
+
+------ LICENSE FILE DATA -------
+84002935u4GE4tXio8kcS6eJoIoMJAXh
+xOrkyjFTT7sc77NWObDGInFR+F9zRTnY
+Trn4D2nBUKWUSxiD/do4VBl0VzXSYFXw
+W9398y2Sz1qxYqpvebpKm1q0lpAJF2A/
+7ogoTLtF1MdDcBFYMowpyVXYiE9WZX3f
+dBq3uG66IemQgyHerliWRV4PXaasJ7M2
+fHLmmGyUtY55bpWn7L5Gsrdjbfvr8oPU
+i4ffEaCABEQWdK1vo2yflk2nYmiJolFk
+hSyvvqLf2yh8geWnQ7CxqjGbfSvJwZMt
+f3YbkANTO6q9QK1AelkBgG76HV517akn
+opgClefGCkhkgPp8ZdSCgM4VFSBAHSlz
+OiUXV4QAYlptxyuK8D+i9y6Own8ITdNy
+rRqQUtqnkT2LTXSJHPU0PlocIyQxVk==
+--------------------------------
