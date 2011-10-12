@@ -20,27 +20,32 @@ Inheritance Chain (from end to start)
 =====================================
 FPDF uses inheritance to achieve a full featureset. If you want more features, those features must then be included in the inheritance chain to be taken advantage of. These may not all be used, but by having them in the chain means you can activate them at the highest level of the construction (exploit generation). 
 
-PDF_Exploit (pdf_exploit_generator.class.php => Provides exploit packing and building
-FPDF_Protection (protection.class.php) => Provides encryption functionality
-PDF_Invoice (invoice.class.php) => Provides JavaScript insert hook with dorked streams
-concat_pdf (concat.class.php) => Provides the ability to concatenate two different PDF files (used in packing)
-FPDI (fpdi.php) => Provides major functionality for generating documents
+- PDF_Exploit (pdf_exploit_generator.class.php => Provides exploit packing and building
+- FPDF_Protection (protection.class.php) => Provides encryption functionality
+- PDF_Invoice (invoice.class.php) => Provides JavaScript insert hook with dorked streams
+- concat_pdf (concat.class.php) => Provides the ability to concatenate two different PDF files (used in packing)
+- FPDI (fpdi.php) => Provides major functionality for generating documents
 
 Using the Library in Existing Projects
 ======================================
 Ensure all files are present at the root level and include pdf_exploit_generator.class.php.
 
 Generating the document:
+
 $pdf = new PDF_Exploit( 'P', 'mm', 'A4' );
 
 Setting encryption:
+
 $pdf->SetProtection(array('print'),'');
 
 Adding an exploit (reference the class for methods):
+
 $pdf-><exploit_to_add>(<shellcode>);
 
 Building the object with the exploits:
+
 $pdf->build_exploit();
 
 Output the PDF:
+
 $pdf->Output();
