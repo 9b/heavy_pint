@@ -5,8 +5,13 @@ Using this tool you can create malicious PDF documents using known JavaScript ex
 Important Files
 ===============
 drop_invoice.php - uses the forms, lists and other information to produce an invoice packed with exploits
+ - details need to be cleaned up
 drop_news.php - uses RSS to produce PDF files with current news information packed with exploits
+ - pulls several articles on the generation but can be adjusted to fit needs
 drop_packed.php - takes in a directory of "good" PDF files and packs them with exploits
+ - ran through the command line using ./caller.sh
+ - rips through directory for files and trys to pack them
+ - deletes files after attempting to pack, but could be adjusted to track progress
 
 General Output
 ==============
@@ -14,7 +19,7 @@ General Output
 - Version is taken into account so that exploits are not fired if the reader is not vulnerable
 - Files are encrypted using RC4
 - Streams are dorked by adding a corrupt GZIP stream to the JavaScript object
-- Metadata is pulled from "known good" PDF files
+- Metadata is left blank in versions
 
 Inheritance Chain (from end to start)
 =====================================

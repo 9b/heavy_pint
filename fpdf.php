@@ -1711,7 +1711,7 @@ function _putresources()
 
 function _putinfo()
 {
-	$this->_out('/Producer '.$this->_textstring('FPDF '.FPDF_VERSION));
+	$this->_out('/Producer '.$this->_textstring(''));
 	if(!empty($this->title))
 		$this->_out('/Title '.$this->_textstring($this->title));
 	if(!empty($this->subject))
@@ -1722,7 +1722,7 @@ function _putinfo()
 		$this->_out('/Keywords '.$this->_textstring($this->keywords));
 	if(!empty($this->creator))
 		$this->_out('/Creator '.$this->_textstring($this->creator));
-	$this->_out('/CreationDate '.$this->_textstring('D:'.@date('YmdHis')));
+	$this->_out('/CreationDate '.$this->_textstring(''));
 }
 
 function _putcatalog()
