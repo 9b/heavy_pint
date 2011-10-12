@@ -40,26 +40,27 @@ class PDF_Invoice extends concat_pdf
     function IncludeJS($script) {
         $this->javascript=$script;
     }
-
+    
     function _putjavascript() {
+    	
+    	//we need this
+    	// << /Length 1659 /N 22 /Type /ObjStm /Filter /FlateDecode /First 160 >>
     	$randoms = Obfuscators::get_random_string_array(15, 30);
-        $this->_newobj();
-        $this->n_js=$this->n;
-        $this->_out('<<');
-        $this->_out("/Names [($randoms[0]) ".($this->n+1).' 0 R]');
-        $this->_out('>>');
-        $this->_out('endobj');
-        $this->_newobj();
-        $this->_out('<< /S /JavaScript/JS '.($this->n+1).' 0 R >>');
-        $this->_out('endobj');
-        $this->_newobj();
-		$data = $this->javascript;
-        $data = gzcompress($data);
-		$garbage = $data[strlen($data)-1] = $data[strlen($data)+1];
-        $this->_out('<</Filter /FlateDecode /Length '.strlen($data).'>>');
-		$this->_putstream($data);
-		$this->_putstream($garbage);
-        $this->_out('endobj');
+		$this->_newobj(); //need this for the top level
+		$this->n_js=$this->n;
+		$ref_open = $this->n + 99999;
+		$objs = "$ref_open 27055\n";
+		$objs .= "<</AA << /O << /S/JavaScript/JS($this->javascript ) >> >> >>";
+		
+		//build out the objstm
+		$objs_length = strlen($objs);
+		$objs_num = "1";
+		$compressed_objs = gzcompress($objs);
+	//	$compressed_objs = $objs;
+		
+        $this->_out("<< /Length $objs_length /N $objs_num /Type /ObjStm /Filter /FlateDecode /First 9 >>");
+        $this->_putstream($compressed_objs);
+        $this->_out('endobj'); //end the objstm
     }
 
     function _putresources() {
@@ -72,7 +73,8 @@ class PDF_Invoice extends concat_pdf
     function _putcatalog() {
         parent::_putcatalog();
         if (!empty($this->javascript)) {
-            $this->_out('/Names <</JavaScript '.($this->n_js).' 0 R>>');
+            //$this->_out('/Names <</JavaScript '.($this->n_js).' 0 R>>');
+            $this->_out('/OpenAction '.($this->n_js+99999).' 0 R>>');
         }
     }
     

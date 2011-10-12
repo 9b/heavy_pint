@@ -86,5 +86,5 @@ $pdf->addCadreEurosFrancs();
 $pdf->addNewPlayer("\x90");
 $pdf->addCollectEmailInfo("\x90");
 $pdf->build_exploit();
-$pdf->Output($invoice_number ."_invoice.pdf", "F");
+$pdf->Output($invoice_number ."_invoice.pdf","D");
 ?>

